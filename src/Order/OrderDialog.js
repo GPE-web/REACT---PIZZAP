@@ -17,7 +17,7 @@ export function OrderDialog({
 			<DialogShadow />
 			<Dialog>
 				<DialogContent>
-					<h2>🚚 Please, come to us and pick up your order! </h2>
+					<h2>🚚 Please, Pick up your order! </h2>
 					<p>
 						You have been emailed confirmation of your order. Thanks for
 						choosing PizzApp.

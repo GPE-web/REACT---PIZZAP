@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
 import {
-  DialogContent,
-  DialogFooter,
-  ConfirmButton
-} from "../FoodDialog/FoodDialog";
-import { formatPrice } from "../Data/FoodData";
-import { getPrice } from "../FoodDialog/FoodDialog";
-const database = window.firebase.database();
+	DialogContent,
+	DialogFooter,
+	ConfirmButton
+} from '../FoodDialog/FoodDialog'
+import { formatPrice } from '../Data/FoodData'
+import { getPrice } from '../FoodDialog/FoodDialog'
+const database = window.firebase.database()
 
 const OrderStyled = styled.div`
 	position: fixed;
@@ -121,16 +121,20 @@ export function Order({
 							>
 								<div>{order.quantity}</div>
 								<div>{order.name}</div>
+								<div>{formatPrice(getPrice(order))}</div>
 								<div
-									style={{ cursor: 'pointer' }}
+									style={{
+										cursor: 'pointer',
+										marginLeft: '35px',
+										marginTop: '-3px'
+									}}
 									onClick={e => {
 										e.stopPropagation()
 										deleteItem(index)
 									}}
 								>
-									🗑
+									❌
 								</div>
-								<div>{formatPrice(getPrice(order))}</div>
 							</OrderItem>
 							<DetailItem>
 								{order.toppings

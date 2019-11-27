@@ -34,7 +34,7 @@ export function Navbar({ login, loggedIn, logout }) {
 	return (
 		<NavbarStyled>
 			<Logo>
-				Sliceline{' '}
+				PizzApp{' '}
 				<span role='img' aria-label='pizza slice'>
 					🍕
 				</span>
