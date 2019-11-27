@@ -9,6 +9,8 @@ const NavbarStyled = styled.div`
 	position: fixed;
 	width: 100%;
 	z-index: 1000;
+	display: flex;
+	justify-content: space-between;
 `
 
 const Logo = styled(Title)`
@@ -17,15 +19,40 @@ const Logo = styled(Title)`
 	text-shadow: 1px 1px 2px black;
 `
 
-export function Navbar() {
+const UserStatus = styled.div`
+	color: white;
+	font-size: 1em;
+	margin-right: 28vw;
+	padding-top: 0.7vh;
+`
+
+const LoginButton = styled.span`
+	cursor: pointer;
+`
+
+export function Navbar({ login, loggedIn, logout }) {
 	return (
 		<NavbarStyled>
 			<Logo>
-				PizzApp{' '}
+				Sliceline{' '}
 				<span role='img' aria-label='pizza slice'>
 					🍕
 				</span>
 			</Logo>
+			<UserStatus>
+				{loggedIn !== 'loading' ? (
+					<>
+						{loggedIn ? 'Logged in.' : ''}
+						{loggedIn ? (
+							<LoginButton onClick={logout}> Log out </LoginButton>
+						) : (
+							<LoginButton onClick={login}> Log in / Sign up </LoginButton>
+						)}
+					</>
+				) : (
+					'loading...'
+				)}
+			</UserStatus>
 		</NavbarStyled>
 	)
 }
